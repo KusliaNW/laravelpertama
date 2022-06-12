@@ -38,3 +38,6 @@ Route::resources([
     'friends' => CobaController::class,
     'groups' => GroupsController::class,
 ]);
+Route::get('/groups/addmember/{group}', [GroupsController::class, 'addmember']);
+Route::put('/groups/addmember/{group}', [GroupsController::class, 'updateaddmember']);
+Route::put('/groups/deleteaddmember/{group}', [GroupsController::class, 'deleteaddmember']);

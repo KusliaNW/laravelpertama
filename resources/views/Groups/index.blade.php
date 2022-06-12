@@ -11,11 +11,23 @@
     <a href="/groups/{{ $group['id']}}"class="card-title">{{ $group['name'] }}</a>
     <p class="card-text">{{ $group['description'] }}</p>
   <hr>
-  <a href="" class="card-link btn-primary">Tambah Anggota</a>
-
+  <a href="/groups/addmember/{{$group['id]}}" class="card-link btn-primary">Tambah Anggota</a>
+  <ul class="list-group">
 @foreach ($group->friends as $friend)
-<li> {{$friend->nama}} </li>
+
+
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{$friend->nama}}
+    <form action="/groups/deleteaddmember/{{ $friend->id}}" method="POST">
+      @csrf
+      @method('PUT')
+    <button type="submit" class="bedge card-link btn-danger">X</a>
+    </form>
+  </li>
+
+
 @endforeach
+</ul>
 
 
 
